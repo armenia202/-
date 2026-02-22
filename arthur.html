@@ -6,9 +6,9 @@
 <title>Արթուր Ալեքսանյան</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -23,7 +23,6 @@ display:flex;
 align-items:center;
 justify-content:center;
 color:white;
-overflow-x:hidden;
 }
 
 .container{
@@ -40,16 +39,10 @@ border-radius:30px;
 padding:40px;
 box-shadow:0 15px 40px rgba(0,0,0,0.5);
 text-align:center;
-transition:0.4s;
-}
-
-.card:hover{
-transform: translateY(-10px);
-box-shadow:0 25px 60px rgba(0,0,0,0.6);
 }
 
 img{
-width:280px;
+width:260px;
 border-radius:25px;
 margin:25px 0;
 box-shadow:0 15px 40px rgba(0,0,0,0.6);
@@ -61,25 +54,17 @@ transform: scale(1.08);
 }
 
 h1{
-font-size:38px;
-font-weight:700;
-letter-spacing:1px;
+font-size:36px;
 }
 
 .subtitle{
-opacity:0.8;
+opacity:0.85;
 margin-top:10px;
 font-size:18px;
 }
 
 .section{
-margin-top:35px;
-}
-
-.section h2{
-margin-bottom:15px;
-font-size:24px;
-font-weight:600;
+margin-top:40px;
 }
 
 .achievements{
@@ -99,6 +84,13 @@ transition:0.3s;
 .achievement:hover{
 background: rgba(255,255,255,0.25);
 transform: scale(1.05);
+}
+
+canvas{
+margin-top:30px;
+background: rgba(255,255,255,0.1);
+padding:15px;
+border-radius:20px;
 }
 
 button{
@@ -125,14 +117,9 @@ to{opacity:1; transform:translateY(0);}
 }
 
 @media(max-width:600px){
-h1{
-font-size:28px;
+img{width:200px;}
+h1{font-size:26px;}
 }
-img{
-width:220px;
-}
-}
-
 </style>
 </head>
 
@@ -142,37 +129,73 @@ width:220px;
 <div class="card">
 
 <h1>Արթուր Ալեքսանյան</h1>
-<p class="subtitle">Օլիմպիական չեմպիոն • Աշխարհի չեմպիոն • Հայաստանի հպարտություն</p>
+<p class="subtitle">Օլիմպիական չեմպիոն • Աշխարհի չեմպիոն</p>
 
 <img src="images/artur.jpg" alt="Արթուր Ալեքսանյան">
 
 <div class="section">
 <h2>Կենսագրություն</h2>
 <p>
-Արթուր Ալեքսանյանը հայ հունահռոմեական ոճի ըմբիշ է,
-ծնված 1991 թվականին։ Նա համարվում է Հայաստանի ամենահաջողակ
-և ճանաչված մարզիկներից մեկը։ Իր կարիերայի ընթացքում նա
-հաղթել է աշխարհի և Եվրոպայի առաջնություններում,
-ինչպես նաև դարձել է Օլիմպիական չեմպիոն։
+Արթուր Ալեքսանյանը Հայաստանի ամենահայտնի հունահռոմեական ոճի ըմբիշներից է։
+Նա Օլիմպիական չեմպիոն է և բազմակի աշխարհի ու Եվրոպայի հաղթող։
+Իր ուժեղ կամքի և նվիրվածության շնորհիվ դարձել է հայկական սպորտի խորհրդանիշ։
 </p>
 </div>
 
 <div class="section">
 <h2>🏆 Ձեռքբերումներ</h2>
-
 <div class="achievements">
 <div class="achievement">🥇 Օլիմպիական ոսկի (Ռիո 2016)</div>
 <div class="achievement">🥈 Օլիմպիական արծաթ (Տոկիո 2020)</div>
 <div class="achievement">🥇 Աշխարհի բազմակի չեմպիոն</div>
 <div class="achievement">🥇 Եվրոպայի բազմակի չեմպիոն</div>
 </div>
+</div>
 
+<div class="section">
+<h2>📊 Շաբաթական մարզման գրաֆիկ</h2>
+<canvas id="trainingChart"></canvas>
 </div>
 
 <button onclick="window.location.href='index.html'">Վերադառնալ գլխավոր էջ</button>
 
 </div>
 </div>
+
+<script>
+const ctx = document.getElementById('trainingChart');
+
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Երկ', 'Երք', 'Չոր', 'Հնգ', 'Ուրբ', 'Շաբ', 'Կիր'],
+datasets: [{
+label: 'Մարզման ժամեր',
+data: [4, 5, 4, 6, 5, 3, 2],
+borderColor: 'white',
+backgroundColor: 'rgba(255,255,255,0.2)',
+fill: true,
+tension: 0.4
+}]
+},
+options: {
+plugins: {
+legend: {
+labels: { color: 'white' }
+}
+},
+scales: {
+x: {
+ticks: { color: 'white' }
+},
+y: {
+ticks: { color: 'white' },
+beginAtZero: true
+}
+}
+}
+});
+</script>
 
 </body>
 </html>
