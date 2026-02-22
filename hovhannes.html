@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<title>Հովհաննես Բաչկով</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1 class="title">Հովհաննես Բաչկով</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Hovhannes_Bachkov.jpg" width="300">
+
+<h2>Կենսագրություն</h2>
+<p>Հայ բռնցքամարտիկ, միջազգային մրցաշարերի հաղթող։</p>
+
+<h2>Մարզումների գրաֆիկ</h2>
+<canvas id="chart"></canvas>
+
+<script>
+new Chart(document.getElementById("chart"), {
+type: "bar",
+data: {
+labels: ["Երկ","Երք","Չոր","Հնգ","Ուրբ"],
+datasets: [{ label: "Ժամեր", data: [4,4,5,4,3] }]
+}
+});
+</script>
+
+<br><br>
+<button onclick="location.href='index.html'">Վերադառնալ</button>
+
+</body>
+</html>
