@@ -10,10 +10,17 @@
 
 <h1 class="title">Գոռ Մինասյան</h1>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Gor_Minasyan.jpg" width="300">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Gor_Minasyan.jpg"
+style="width:300px; border-radius:20px; box-shadow:0 5px 20px rgba(0,0,0,0.5);">
 
 <h2>Կենսագրություն</h2>
 <p>Հայ ծանրամարտիկ, միջազգային մրցումների մեդալակիր։</p>
+<h2>🏅 Նվաճումներ</h2>
+<ul style="list-style:none; padding:0; font-size:18px;">
+<li>🥇 Օլիմպիական մեդալակիր</li>
+<li>🥇 Աշխարհի չեմպիոն</li>
+<li>🥇 Եվրոպայի չեմպիոն</li>
+</ul>
 
 <h2>Մարզումների գրաֆիկ</h2>
 <canvas id="chart"></canvas>
@@ -23,7 +30,11 @@ new Chart(document.getElementById("chart"), {
 type: "bar",
 data: {
 labels: ["Երկ","Երք","Չոր","Հնգ","Ուրբ"],
-datasets: [{ label: "Ժամեր", data: [5,5,4,6,5] }]
+datasets: [{
+label: "Մարզման ժամեր",
+data: [...],
+backgroundColor: "#C8102E"
+}]
 }
 });
 </script>
