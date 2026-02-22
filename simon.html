@@ -2,44 +2,195 @@
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Սիմոն Մարտիրոսյան</title>
-<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins', sans-serif;
+background: linear-gradient(135deg,#8E0E00,#1F1C18);
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+}
+
+.container{
+width:95%;
+max-width:1000px;
+padding:40px 20px;
+animation: fadeIn 1s ease;
+}
+
+.card{
+background: rgba(255,255,255,0.1);
+backdrop-filter: blur(20px);
+border-radius:30px;
+padding:40px;
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
+text-align:center;
+}
+
+img{
+width:260px;
+border-radius:25px;
+margin:25px 0;
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
+transition:0.4s;
+}
+
+img:hover{
+transform: scale(1.08);
+}
+
+h1{
+font-size:36px;
+}
+
+.subtitle{
+opacity:0.85;
+margin-top:10px;
+font-size:18px;
+}
+
+.section{
+margin-top:40px;
+}
+
+.achievements{
+display:grid;
+grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.achievement{
+background: rgba(255,255,255,0.15);
+padding:15px;
+border-radius:20px;
+transition:0.3s;
+}
+
+.achievement:hover{
+background: rgba(255,255,255,0.25);
+transform: scale(1.05);
+}
+
+canvas{
+margin-top:30px;
+background: rgba(255,255,255,0.1);
+padding:15px;
+border-radius:20px;
+}
+
+button{
+margin-top:40px;
+padding:14px 35px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+background:white;
+color:#8E0E00;
+transition:0.3s;
+}
+
+button:hover{
+background:#eee;
+transform: scale(1.1);
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@media(max-width:600px){
+img{width:200px;}
+h1{font-size:26px;}
+}
+</style>
 </head>
+
 <body>
 
-<h1 class="title">Սիմոն Մարտիրոսյան</h1>
+<div class="container">
+<div class="card">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Simon_Martirosyan.jpg"
-style="width:300px; border-radius:20px; box-shadow:0 5px 20px rgba(0,0,0,0.5);">
+<h1>Սիմոն Մարտիրոսյան</h1>
+<p class="subtitle">Ծանրամարտիկ • Օլիմպիական փոխչեմպիոն</p>
 
+<img src="images/simon-martirosyan.jpg" alt="Սիմոն Մարտիրոսյան">
+
+<div class="section">
 <h2>Կենսագրություն</h2>
-<p>Հայ ծանրամարտիկ, Օլիմպիական խաղերի մեդալակիր և աշխարհի չեմպիոն։</p>
-<h2>🏅 Նվաճումներ</h2>
-<ul style="list-style:none; padding:0; font-size:18px;">
-<li>🥇 Օլիմպիական մեդալակիր</li>
-<li>🥇 Աշխարհի չեմպիոն</li>
-<li>🥇 Եվրոպայի չեմպիոն</li>
-</ul>
-<h2>Մարզումների գրաֆիկ</h2>
-<canvas id="chart"></canvas>
+<p>
+Սիմոն Մարտիրոսյանը հայ ծանրամարտիկ է,
+Օլիմպիական խաղերի արծաթե մեդալակիր և
+աշխարհի ու Եվրոպայի բազմակի չեմպիոն։
+Նա համարվում է Հայաստանի ամենահզոր մարզիկներից մեկը։
+</p>
+</div>
+
+<div class="section">
+<h2>🏆 Ձեռքբերումներ</h2>
+<div class="achievements">
+<div class="achievement">🥈 Օլիմպիական խաղերի մեդալակիր</div>
+<div class="achievement">🥇 Աշխարհի չեմպիոն</div>
+<div class="achievement">🥇 Եվրոպայի չեմպիոն</div>
+<div class="achievement">💪 Ծանր քաշային կարգի առաջատար</div>
+</div>
+</div>
+
+<div class="section">
+<h2>📊 Շաբաթական մարզման գրաֆիկ</h2>
+<canvas id="trainingChart"></canvas>
+</div>
+
+<button onclick="window.location.href='index.html'">
+Վերադառնալ գլխավոր էջ
+</button>
+
+</div>
+</div>
 
 <script>
-new Chart(document.getElementById("chart"), {
-type: "bar",
+const ctx = document.getElementById('trainingChart');
+
+new Chart(ctx, {
+type: 'bar',
 data: {
-labels: ["Երկ","Երք","Չոր","Հնգ","Ուրբ"],
+labels: ['Երկ', 'Երք', 'Չոր', 'Հնգ', 'Ուրբ', 'Շաբ', 'Կիր'],
 datasets: [{
-label: "Մարզման ժամեր",
-data: [...],
-backgroundColor: "#C8102E"
+label: 'Մարզման ժամեր',
+data: [4, 5, 6, 5, 6, 3, 2],
+backgroundColor: 'rgba(255,255,255,0.7)'
 }]
+},
+options: {
+plugins: {
+legend: {
+labels: { color: 'white' }
+}
+},
+scales: {
+x: { ticks: { color: 'white' }},
+y: { ticks: { color: 'white' }, beginAtZero:true }
+}
 }
 });
 </script>
-
-<br><br>
-<button onclick="location.href='index.html'">Վերադառնալ</button>
 
 </body>
 </html>
