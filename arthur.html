@@ -2,43 +2,177 @@
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Արթուր Ալեքսանյան</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins', sans-serif;
+background: linear-gradient(135deg,#1e3c72,#c31432);
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+overflow-x:hidden;
+}
+
+.container{
+width:95%;
+max-width:1000px;
+padding:40px 20px;
+animation: fadeIn 1s ease;
+}
+
+.card{
+background: rgba(255,255,255,0.12);
+backdrop-filter: blur(20px);
+border-radius:30px;
+padding:40px;
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
+text-align:center;
+transition:0.4s;
+}
+
+.card:hover{
+transform: translateY(-10px);
+box-shadow:0 25px 60px rgba(0,0,0,0.6);
+}
+
+img{
+width:280px;
+border-radius:25px;
+margin:25px 0;
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
+transition:0.4s;
+}
+
+img:hover{
+transform: scale(1.08);
+}
+
+h1{
+font-size:38px;
+font-weight:700;
+letter-spacing:1px;
+}
+
+.subtitle{
+opacity:0.8;
+margin-top:10px;
+font-size:18px;
+}
+
+.section{
+margin-top:35px;
+}
+
+.section h2{
+margin-bottom:15px;
+font-size:24px;
+font-weight:600;
+}
+
+.achievements{
+display:grid;
+grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.achievement{
+background: rgba(255,255,255,0.15);
+padding:15px;
+border-radius:20px;
+transition:0.3s;
+}
+
+.achievement:hover{
+background: rgba(255,255,255,0.25);
+transform: scale(1.05);
+}
+
+button{
+margin-top:40px;
+padding:14px 35px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+background:white;
+color:#c31432;
+transition:0.3s;
+}
+
+button:hover{
+background:#eee;
+transform: scale(1.1);
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@media(max-width:600px){
+h1{
+font-size:28px;
+}
+img{
+width:220px;
+}
+}
+
+</style>
 </head>
+
 <body>
 
-<h1 class="title">Արթուր Ալեքսանյան</h1>
+<div class="container">
+<div class="card">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Artur_Aleksanyan_2016.jpg"
-style="width:300px; border-radius:20px; box-shadow:0 5px 20px rgba(0,0,0,0.5);">
+<h1>Արթուր Ալեքսանյան</h1>
+<p class="subtitle">Օլիմպիական չեմպիոն • Աշխարհի չեմպիոն • Հայաստանի հպարտություն</p>
+
+<img src="images/artur.jpg" alt="Արթուր Ալեքսանյան">
+
+<div class="section">
 <h2>Կենսագրություն</h2>
-<p>Օլիմպիական չեմպիոն հունահռոմեական ըմբշամարտում։ Աշխարհի և Եվրոպայի բազմակի չեմպիոն։</p>
-<h2>🏅 Նվաճումներ</h2>
-<ul style="list-style:none; padding:0; font-size:18px;">
-<li>🥇 Օլիմպիական չեմպիոն</li>
-<li>🥇 Աշխարհի չեմպիոն</li>
-<li>🥇 Եվրոպայի չեմպիոն</li>
-</ul>
-<h2>Մարզումների գրաֆիկ</h2>
-<canvas id="chart"></canvas>
+<p>
+Արթուր Ալեքսանյանը հայ հունահռոմեական ոճի ըմբիշ է,
+ծնված 1991 թվականին։ Նա համարվում է Հայաստանի ամենահաջողակ
+և ճանաչված մարզիկներից մեկը։ Իր կարիերայի ընթացքում նա
+հաղթել է աշխարհի և Եվրոպայի առաջնություններում,
+ինչպես նաև դարձել է Օլիմպիական չեմպիոն։
+</p>
+</div>
 
-<script>
-new Chart(document.getElementById("chart"), {
-type: "bar",
-data: {
-labels: ["Երկ","Երք","Չոր","Հնգ","Ուրբ"],
-datasets: [{
-label: "Մարզման ժամեր",
-data: [3,4,3,5,4],
-backgroundColor: "#C8102E"
-}]
-}
-});
-</script>
+<div class="section">
+<h2>🏆 Ձեռքբերումներ</h2>
 
-<br><br>
-<button onclick="location.href='index.html'">Վերադառնալ</button>
+<div class="achievements">
+<div class="achievement">🥇 Օլիմպիական ոսկի (Ռիո 2016)</div>
+<div class="achievement">🥈 Օլիմպիական արծաթ (Տոկիո 2020)</div>
+<div class="achievement">🥇 Աշխարհի բազմակի չեմպիոն</div>
+<div class="achievement">🥇 Եվրոպայի բազմակի չեմպիոն</div>
+</div>
+
+</div>
+
+<button onclick="window.location.href='index.html'">Վերադառնալ գլխավոր էջ</button>
+
+</div>
+</div>
 
 </body>
 </html>
