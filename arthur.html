@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<title>Արթուր Ալեքսանյան</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1 class="title">Արթուր Ալեքսանյան</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Artur_Aleksanyan_2016.jpg" width="300">
+
+<h2>Կենսագրություն</h2>
+<p>Օլիմպիական չեմպիոն հունահռոմեական ըմբշամարտում։ Աշխարհի և Եվրոպայի բազմակի չեմպիոն։</p>
+
+<h2>Մարզումների գրաֆիկ</h2>
+<canvas id="chart"></canvas>
+
+<script>
+new Chart(document.getElementById("chart"), {
+type: "bar",
+data: {
+labels: ["Երկ","Երք","Չոր","Հնգ","Ուրբ"],
+datasets: [{ label: "Ժամեր", data: [3,4,3,5,4] }]
+}
+});
+</script>
+
+<br><br>
+<button onclick="location.href='index.html'">Վերադառնալ</button>
+
+</body>
+</html>
